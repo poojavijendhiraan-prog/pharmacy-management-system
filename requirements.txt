@@ -1,6 +1,6 @@
-SQLAlchemy==2.0.29
-Flask-SQLAlchemy==3.1.1
 Flask==2.2.5
+Flask-SQLAlchemy==3.1.1
 Flask-CORS==4.0.0
 Werkzeug==2.2.3
+SQLAlchemy==2.0.39
 gunicorn
