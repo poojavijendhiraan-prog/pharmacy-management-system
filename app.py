@@ -538,6 +538,8 @@ def init_database():
             print(f"Error initializing database: {e}")
             db.session.rollback()
 
+# Replace the final section in your app.py with this:
+
 if __name__ == '__main__':
     # Create directories if they don't exist
     os.makedirs('templates', exist_ok=True)
@@ -547,10 +549,24 @@ if __name__ == '__main__':
     # Initialize database
     init_database()
     
-    print("Starting Pharmacy Management System...")
-    print("Dashboard: http://localhost:5000/")
-    print("Medicines: http://localhost:5000/medicines")
-    print("Sales: http://localhost:5000/sales")
-    print("Inventory: http://localhost:5000/inventory")
+    # Get port from environment variable (Render provides this)
+    PORT = int(os.environ.get('PORT', 5000))
     
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    print("=" * 50)
+    print("🏥 PHARMACY MANAGEMENT SYSTEM STARTING")
+    print("=" * 50)
+    print(f"🌐 Server running on port: {PORT}")
+    print(f"📊 Dashboard: http://localhost:{PORT}/")
+    print(f"💊 Medicines: http://localhost:{PORT}/medicines")
+    print(f"💰 Sales: http://localhost:{PORT}/sales")
+    print(f"📦 Inventory: http://localhost:{PORT}/inventory")
+    print("=" * 50)
+    
+    # Run the Flask development server
+    # This works perfectly for small to medium applications
+    app.run(
+        host='0.0.0.0',
+        port=PORT,
+        debug=False,  # Never use debug=True in production
+        threaded=True  # Handle multiple requests
+    )
