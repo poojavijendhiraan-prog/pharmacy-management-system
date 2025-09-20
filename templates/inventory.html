@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory - Pharmacy Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Pharmacy Management System</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Dashboard</a></li>
+                    <li><a href="/medicines">Medicines</a></li>
+                    <li><a href="/sales">Sales</a></li>
+                    <li><a href="/inventory" class="active">Inventory</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="dashboard">
+                <div class="card">
+                    <h2>Low Stock Items</h2>
+                    <div id="low-stock-items" class="inventory-grid">
+                        <!-- Low stock items will be loaded here -->
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Out of Stock Items</h2>
+                    <div id="out-of-stock-items" class="inventory-grid">
+                        <!-- Out of stock items will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Pharmacy Management System</p>
+        </footer>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
