@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales - Pharmacy Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Pharmacy Management System</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Dashboard</a></li>
+                    <li><a href="/medicines">Medicines</a></li>
+                    <li><a href="/sales" class="active">Sales</a></li>
+                    <li><a href="/inventory">Inventory</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="dashboard">
+                <div class="card">
+                    <h2>Make a Sale</h2>
+                    <form id="make-sale-form">
+                        <select name="medicine_id" id="medicine-select" required>
+                            <option value="">Select Medicine</option>
+                        </select>
+                        <input type="number" name="quantity" placeholder="Quantity to Sell" min="1" required>
+                        <button type="submit">Complete Sale</button>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <h2>Sales History</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Medicine</th>
+                                <th>Quantity Sold</th>
+                                <th>Total Price</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="sales-body">
+                            <!-- Sales will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Pharmacy Management System</p>
+        </footer>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
